@@ -15,7 +15,7 @@ class Codechef
 		for (int t=1; t<=T; t++){
 		    int N = sc.nextInt();
 		    int i = 1;
-		    int bitt=1, nibbble=0, bytee=0;
+		    long bitt=1, nibbble=0, bytee=0;
 		    int count = 0;
 		    while(i<=N){
 		        if(count==2){
