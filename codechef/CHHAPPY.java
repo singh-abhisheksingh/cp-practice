@@ -3,6 +3,8 @@
 import java.util.*;
 import java.lang.*;
 import java.io.*;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 
 /* Name of the class has to be "Main" only if the class is public. */
 class Codechef
@@ -14,29 +16,37 @@ class Codechef
 		int T = sc.nextInt();
 		for (int t=1; t<=T; t++){
 		    int N = sc.nextInt();
-		    HashMap<Integer, Integer> hmap = new HashMap<>();
-		    HashMap<Integer, Integer> hmap2 = new HashMap<>();
-		    int flag = 0;
-		    
+		    int countArr[] = new int[N+1];
+		    Multimap<Integer, Integer> multimap = ArrayListMultimap.create();
 		    for (int i=1; i<=N; i++){
-		        hmap.put(i, sc.nextInt());
+		        int input = sc.nextInt();
+		        countArr[input]++;
+		        multimap.put(input ,i);
 		    }
-		    for (Integer i : hmap.keySet()){
-		        Integer value = hmap.get(i);
-		        Integer finalValue = hmap.get(value);
-		        hmap2.put(i, finalValue);
-		    }
-		    for (Integer i : hmap2.keySet()){
-		        for (Integer j : hmap2.keySet()){
-		            if((i==j)||(flag==1)){
-		                continue;
-		            }
-		            if(hmap2.get(i)==hmap2.get(j)){
-		                if(hmap.get(i)==hmap.get(j)){
-		                    continue;
-		                }
-		                flag = 1;
-		            }
+		    
+		    int flag = 0;
+		    for (int i=1; i<=N; i++){
+		        if(countArr[i]>=2){
+	               
+	                HashMap<Integer, Integer> hmap = new HashMap<>();
+	                int count = 0;
+                    for (Integer value : multimap.get(i)){
+                        Integer c = hmap.get(value);
+                        if(c==null){
+                            hmap.put(value, 1);
+                            if(multimap.containsKey(value)){
+                                count++;
+                            }
+                        }
+                        else{
+                            hmap.put(value, ++c);
+                        }
+                        if(count>=2){
+                            flag = 1;
+                            break;
+                        }
+                    }
+                    
 		        }
 		    }
 		    if(flag==1){
