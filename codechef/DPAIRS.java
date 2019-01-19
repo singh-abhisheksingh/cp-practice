@@ -13,33 +13,36 @@ class Codechef
 		Scanner sc = new Scanner(System.in);
 	    int N = sc.nextInt();
 	    int M = sc.nextInt();
-	    HashMap<Long, Integer> hmap = new HashMap<>();
-	    int count = 0, flag = 0;
-	    int a[] = new int[N];
-	    int b[] = new int[M];
+	    int n[] = new int[N];
+	    int m[] = new int[M];
+
+	    int maxN=Integer.MIN_VALUE, maxNi=0;
+	    int minM=Integer.MAX_VALUE, minMi=0;
+
 	    for(int i=0; i<N; i++){
-	        a[i] = sc.nextInt();
+            n[i] = sc.nextInt();
+            if(n[i]>maxN){
+                maxN = n[i];
+                maxNi = i;
+            }
 	    }
 	    for(int i=0; i<M; i++){
-	        b[i] = sc.nextInt();
-	        if(flag==1){
-	            break;
-	        }
-	        for(int j=0; j<N; j++){
-	            if(count==N+M-1){
-	                flag = 1;
-	                break;
-	            }
-	            long sum = (long)b[i] + (long)a[j];
-	            if(hmap.containsKey(sum)){
-	                continue;
-	            }
-	            else{
-	                hmap.put(sum, 1);
-	                count++;
-	                System.out.println(j+" "+i);
-	            }
-	        }
+	        m[i] = sc.nextInt();
+            if(m[i]<minM){
+                minM = m[i];
+                minMi = i;
+            }
 	    }
+	    
+	    for(int i=0; i<N; i++){
+	        System.out.println(i+" "+minMi);
+	    }
+	    for(int i=0; i<M; i++){
+	        if(i==minMi){
+	            continue;
+	        }
+	        System.out.println(maxNi+" "+i);
+	    }
+	  
 	}
 }
