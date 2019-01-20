@@ -11,13 +11,13 @@ class Codechef
 	{
 		// your code goes here
 		Scanner sc = new Scanner(System.in);
-		int T = sc.nextInt();
-		for (int t=1; t<=T; t++){
-		    int N = sc.nextInt();
-		    int P = sc.nextInt();
-		    int i = (N/2)+1;
-		    int rem = N%i;
-		    int answer=0;
+		long T = sc.nextInt();
+		for (long t=1; t<=T; t++){
+		    long N = sc.nextLong();
+		    long P = sc.nextLong();
+		    long i = (N/2)+1;
+		    long rem = N%i;
+		    long answer=0;
 		    if((N==2)||(N==1)){
 		        answer = (P-rem)*(P-rem)*(P-rem);
 		    }
