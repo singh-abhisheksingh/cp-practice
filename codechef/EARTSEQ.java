@@ -18,22 +18,24 @@ class Codechef
 		        System.out.print("6 10 15\n");
 		        continue;
 		    }
+		    // int count = 3;
 		    int x = 4, flag = 1, mainFlag = 0, temp = 49957, unique = 49957;
-		  //  System.out.print("20011,49927\n49927,3\n3,49957\n");
-		    System.out.print("999089197 149781 149871 ");
+		    // System.out.print("20011,49927\n49927,3\n3,49957\n");
+		   System.out.print("999089197 149781 149871 ");
 		    for(int i=4; i<=N; i++){
-		        
+		        // System.out.print("i="+i+" --> ");
 		        if(i==N){
-	               // System.out.println("!--------------------------");
-	               // System.out.print(unique+",20011");
-	                System.out.print(unique*20011);
+	                // System.out.print(unique+",20011");
+	                // count++;
+	               System.out.print(unique*20011);
 	                break;
 		        }
 		        
 		        if(x<=19999&&mainFlag==0){
 		            if(flag==1){
-    		          //  System.out.print(temp+","+x+"\n");
-    		            System.out.print(temp*x+" ");
+    		            // System.out.print(temp+","+x+"\n");
+    		            // count++;
+    		           System.out.print(temp*x+" ");
     		            unique = x;
     		            if(temp==49957){
     		                temp = 49943;
@@ -47,11 +49,13 @@ class Codechef
 		                    x++;
 		                    temp = 49939;
 		                    mainFlag = 1;
-		                  //  System.out.println("Continuing");
+		                    N++;
+		                    // System.out.println("Continuing");
 		                    continue;
 		                }
-		              //  System.out.print(x+","+temp+"\n");
-		                System.out.print(temp*x+" ");
+		                // System.out.print(x+","+temp+"\n");
+		                // count++;
+		               System.out.print(temp*x+" ");
 		                unique = temp;
 		                x++;
 		            }
@@ -59,12 +63,13 @@ class Codechef
 		        }
 		        else{
 		            if(x==20000){
-		              //  System.out.println("--------------------------");
+		                // System.out.println("--------------------------");
 		                x--;
 		            }
 		            if(flag==1){
-    		          //  System.out.print(temp+","+x+"\n");
-    		            System.out.print(temp*x+" ");
+    		            // System.out.print(temp+","+x+"\n");
+    		            // count++;
+    		           System.out.print(temp*x+" ");
     		            unique = x;
     		            if(temp==49939){
     		                temp = 49937;
@@ -74,14 +79,16 @@ class Codechef
     		            }
 		            }
 		            else{
-		              //  System.out.print(x+","+temp+"\n");
-		                System.out.print(temp*x+" ");
+		                // System.out.print(x+","+temp+"\n");
+		                // count++;
+		               System.out.print(temp*x+" ");
 		                unique = temp;
 		                x--;
 		            }
 		            flag*=-1;
 		        }
 		    }
+		    // System.out.print("\nCount = "+count);
 		    System.out.print("\n");
 		}
 	}
